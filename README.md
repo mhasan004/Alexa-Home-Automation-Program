@@ -5,7 +5,8 @@ Will eventually add more devices to control. Servo will be used to make a linear
 
 Will also make a website with Node.js that will be able to control the devices 
 
-**USAGE**
+# USAGE
+
 "Alexa, tell my lamp to turn {OnOff}" -> Will turn lamp on or off
 "Alexa, tell my servo to turn {LeftRight}" -> Will move servo to angle 0 or 180
 "Alexa, tell my servo to turn {Angle} degrees" -> Will move servo to whatever angle you said
