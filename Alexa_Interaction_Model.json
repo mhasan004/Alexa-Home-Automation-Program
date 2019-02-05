@@ -1,0 +1,200 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "my devices",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "ServoDirectionIntent",
+                    "slots": [
+                        {
+                            "name": "LeftRight",
+                            "type": "leftRightValue"
+                        }
+                    ],
+                    "samples": [
+                        "move servo to the {LeftRight}",
+                        "turn servo {LeftRight}",
+                        "tell Servo to turn {LeftRight}"
+                    ]
+                },
+                {
+                    "name": "ServoAngleIntent",
+                    "slots": [
+                        {
+                            "name": "Angle",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "servo {Angle}",
+                        "servo {Angle} degrees",
+                        "{Angle} degrees",
+                        "{Angle}",
+                        "turn my servo {Angle} degrees",
+                        "tell my servo to turn {Angle} degrees",
+                        "turn servo {Angle} degrees"
+                    ]
+                },
+                {
+                    "name": "LampOnOffIntent",
+                    "slots": [
+                        {
+                            "name": "OnOff",
+                            "type": "onOffValue"
+                        }
+                    ],
+                    "samples": [
+                        "lamp {OnOff}",
+                        "{OnOff}",
+                        "tell my lamp to turn {OnOff}",
+                        "turn my lamp {OnOff}",
+                        "turn lamp {OnOff}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "leftRightValue",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "right"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "left"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onOffValue",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "off"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "on"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "ServoDirectionIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "LeftRight",
+                            "type": "leftRightValue",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.89213570934.628044200572"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ServoAngleIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Angle",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.359776361746.1473879683607"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LampOnOffIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "OnOff",
+                            "type": "onOffValue",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1030750674116.387240869322"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.89213570934.185821449014",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "say left or right to turn servo completely left or right"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.89213570934.628044200572",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "say left or right to turn servo completely left or right"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.359776361746.1473879683607",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "what angle do you want the servo to move"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1030750674116.387240869322",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "say on or off to turn lamp on or off"
+                    }
+                ]
+            }
+        ]
+    }
+}
