@@ -9,15 +9,22 @@
                 },
                 {
                     "name": "AMAZON.CancelIntent",
-                    "samples": []
+                    "samples": [
+                        "stop",
+                        "cancel"
+                    ]
                 },
                 {
                     "name": "AMAZON.HelpIntent",
-                    "samples": []
+                    "samples": [
+                        "help"
+                    ]
                 },
                 {
                     "name": "AMAZON.StopIntent",
-                    "samples": []
+                    "samples": [
+                        "stop"
+                    ]
                 },
                 {
                     "name": "AMAZON.NavigateHomeIntent",
@@ -64,6 +71,9 @@
                         }
                     ],
                     "samples": [
+                        "turn {OnOff} my lamp",
+                        "turn {OnOff} lamp",
+                        "turn {OnOff} the lamp",
                         "lamp {OnOff}",
                         "{OnOff}",
                         "tell my lamp to turn {OnOff}",
