@@ -30,7 +30,7 @@ def stop():
 
 @ask.intent('Amazon.HelpIntent')
 def help():
-    return question("You can say tell lamp to turn on, or, turn servo 90 degrees")
+    return statement("You can say tell lamp to turn on, or, turn servo 90 degrees")
 
 #LAMP ON/OFF:
 @ask.intent('LampOnOffIntent')
@@ -64,7 +64,18 @@ def servoAngle(Angle):
 
 @ask.intent('ServoDirectionIntent')
 def servoDirection(LeftRight):
-    servoAngle(LeftRight)
+    if LeftRight is None: #no command was given
+        return question("Tell me what angle to turn the servo")
+    else:
+        topic = "/devices/servo"
+        Angle = 90;
+        if LeftRight == "left":
+            Angle = 0;
+        if LeftRight == "right":
+            Angle = 180;
+        formatted_Angle = '%03d' % int(Angle) #turned Angle number to a 3 digit string. SOLUTION to issue where the ESP8266 gets some random numbers passed
+        os.system("""mosquitto_pub -t %s -m %s""" %(topic, formatted_Angle) )
+        return statement("Turning Servo to Angle: %s" %formatted_Angle)
 
 if __name__ == '__main__':
     app.run(debug=True)
