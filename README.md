@@ -8,12 +8,12 @@ Will also make a website with Node.js that will be able to control the devices
 # USAGE
 
 * "Alexa start My Devices"
+ 
+    * "Alexa, tell my lamp to turn {On/Off}" -> Will turn lamp on or off
 
-* "Alexa, tell my lamp to turn {On/Off}" -> Will turn lamp on or off
+    * "Alexa, tell my servo to turn {Left/Right}" -> Will move servo to angle 0 or 180
 
-* "Alexa, tell my servo to turn {Left/Right}" -> Will move servo to angle 0 or 180
-
-* "Alexa, tell my servo to turn {Angle} degrees" -> Will move servo to whatever angle you said
+    * "Alexa, tell my servo to turn {Angle} degrees" -> Will move servo to whatever angle you said
 
 OR
 
