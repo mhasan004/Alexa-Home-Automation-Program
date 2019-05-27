@@ -2,10 +2,11 @@
 # Alexa, tell my dimmer to turn {LeftRight} -> dimmerDirectionIntent
 # Alexa, tell my dimmer to turn {Angle} degrees -> dimmerAngleIntent
 
-# See what ESP Says: one on terminal type: mosquitto_sub -v -t "/test/lamp"
-# Send data to ESP from Pi: mosquitto_pub -t "/test/lamp" -m '1' //or '0'
+# See what ESP Says: one on terminal type: mosquitto_sub -v -t "/test/light"
+# Send data to ESP from Pi: mosquitto_pub -t "/test/light" -m '1' //or '0'
 # See what ESP Says: one on terminal type: mosquitto_sub -v -t "/test/dimmer"
 # Send data to ESP from Pi: mosquitto_pub -t "/test/dimmer" -m '__some_angle__'
+
 from flask import Flask, template_rendered
 from flask_ask import Ask, statement, question
 from numpy import interp #trying to map percent 0-100 to servo angle 0-180
