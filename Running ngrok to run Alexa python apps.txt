@@ -1,0 +1,39 @@
+
+Run this program and act like a server with nrok. 
+The set up on alexa develop and test on alexa device.
+ngrok point to the skill handler. get back https endpoint. put into alexa dev to test it out
+
+1) Download ngrok and unzip the ngrok.exe file to someplace (i unziped it to this folder to make things easier)
+   https://ngrok.com/download
+2) go to the ngrok file u just unzipped and Run it and put in the command:
+   WINDOWS: 
+      ngrok http 5000   //nrok to call it. what protocol? http. what port? flask development port uses 5000 we have a http and https port now  for amazon
+   LINUX:
+      ./ngrok http 5000 
+3) Alexa Developer Account with same amazon acount as your Alexa: https://developer.amazon.com 
+   a) Alexa Tab -> Alexa Skills Kit -> Create SKill
+   b) Invocation Name = what ur user will say to invoke the app
+   c) Make your own intents. look at your @ask.intent("__") names from the python script you wrote. make a intent in the alexa dev accout for each of these
+   
+   d) After all is done, go to endpoints -> HTTPs -> same for the default and North Ameria options. 
+      Type in the https thing u got from ngrok(this url basically forward this url to the local url): https://829ecf5f.ngrok.io
+      But since my endpoint is "/reddit_reader" it will be: https://829ecf5f.ngrok.io/reddit_reader
+   e) The certification is, since im using ngrok, " my dev endpoint is a sub-domain ...."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

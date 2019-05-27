@@ -1,25 +1,11 @@
 # Devices_Alexa_Program
-This custom program to turn on/off a lamp and turn a servo a certain angle using Alexa, Raspberry Pi, and the ESP8266 through the MQTT protocol. 
+This custom program to turn on/off a lamp and turn a servo a certain angle using Alexa, Raspberry Pi, and the ESP8266 through the MQTT protocol 
 
-Will eventually add more devices to control. Servo will be used to make a linear actuator that will be 3D printed to control a sliding light dimmer. 
+home_automation.py is the python script that used Flask and Flask-Ask libraries to process Alexa intents. It will send servo angle values to the ESP8266 by publishing them to the MQTT server.
 
-Will also make a website with Node.js that will be able to control the devices 
+MQTT_MultipleTopics.ino is an Arduino programm that is to be flashed on a ESp8266 chip. This will controll the servos which will turn on/off lights
 
-# USAGE
+AlexaInteractionModel_MyDevices.json is the model I used for my Alexa app in the Amazon Developer Console.
 
-* "Alexa start My Devices"
- 
-    * "Alexa, tell my lamp to turn {On/Off}" -> Will turn lamp on or off
-
-    * "Alexa, tell my servo to turn {Left/Right}" -> Will move servo to angle 0 or 180
-
-    * "Alexa, tell my servo to turn {Angle} degrees" -> Will move servo to whatever angle you said
-
-OR
-
-* "Alexa, tell my Devices to tell my lamp to turn {On/Off}
-
-* "Alexa, tell my Devices to tell my servo to turn {Left/Right}" 
-
-* "Alexa, tell my Devices to tell my servo to turn {Angle} degrees"
+I used ngrok to take my program live. 
 

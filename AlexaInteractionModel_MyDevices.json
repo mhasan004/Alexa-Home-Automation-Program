@@ -31,21 +31,21 @@
                     "samples": []
                 },
                 {
-                    "name": "ServoDirectionIntent",
+                    "name": "DimmerDirectionIntent",
                     "slots": [
                         {
-                            "name": "LeftRight",
-                            "type": "leftRightValue"
+                            "name": "MaxMinUpDown",
+                            "type": "MaxMinUpDownValue"
                         }
                     ],
                     "samples": [
-                        "move servo to the {LeftRight}",
-                        "turn servo {LeftRight}",
-                        "tell Servo to turn {LeftRight}"
+                        "turn the dimmer to {MaxMinUpDown}",
+                        "turn the dimmer {MaxMinUpDown}",
+                        "turn dimmer {MaxMinUpDown}"
                     ]
                 },
                 {
-                    "name": "ServoAngleIntent",
+                    "name": "DimmerAngleIntent",
                     "slots": [
                         {
                             "name": "Angle",
@@ -53,28 +53,33 @@
                         }
                     ],
                     "samples": [
+                        "turn light {Angle} percent",
+                        "light {Angle} percent",
                         "servo {Angle}",
-                        "servo {Angle} degrees",
-                        "{Angle} degrees",
+                        "turn servo {Angle}",
+                        "turn servo {Angle} degrees",
+                        "turn dimmer {Angle} percent",
+                        "dimmer {Angle}",
+                        "dimmer {Angle} percent",
+                        "{Angle} percent",
                         "{Angle}",
-                        "turn my servo {Angle} degrees",
-                        "tell my servo to turn {Angle} degrees",
-                        "turn servo {Angle} degrees"
+                        "turn my dimmer {Angle} percent",
+                        "tell  dimmer to turn {Angle} percent"
                     ]
                 },
                 {
-                    "name": "LampOnOffIntent",
+                    "name": "LightOnOffIntent",
                     "slots": [
                         {
                             "name": "OnOff",
-                            "type": "onOffValue"
+                            "type": "OnOffValue"
                         }
                     ],
                     "samples": [
-                        "turn {OnOff} my lamp",
-                        "turn {OnOff} lamp",
-                        "turn {OnOff} the lamp",
-                        "lamp {OnOff}",
+                        "turn {OnOff}  light",
+                        "turn {OnOff} light",
+                        "turn {OnOff} the light",
+                        "light {OnOff}",
                         "{OnOff}",
                         "tell my lamp to turn {OnOff}",
                         "turn my lamp {OnOff}",
@@ -84,22 +89,42 @@
             ],
             "types": [
                 {
-                    "name": "leftRightValue",
+                    "name": "MaxMinUpDownValue",
                     "values": [
                         {
                             "name": {
-                                "value": "right"
+                                "value": "off"
                             }
                         },
                         {
                             "name": {
-                                "value": "left"
+                                "value": "on"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "min"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "max"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "up"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "down"
                             }
                         }
                     ]
                 },
                 {
-                    "name": "onOffValue",
+                    "name": "OnOffValue",
                     "values": [
                         {
                             "name": {
@@ -118,23 +143,23 @@
         "dialog": {
             "intents": [
                 {
-                    "name": "ServoDirectionIntent",
+                    "name": "DimmerDirectionIntent",
                     "confirmationRequired": false,
                     "prompts": {},
                     "slots": [
                         {
-                            "name": "LeftRight",
-                            "type": "leftRightValue",
+                            "name": "MaxMinUpDown",
+                            "type": "MaxMinUpDownValue",
                             "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
-                                "elicitation": "Elicit.Slot.89213570934.628044200572"
+                                "elicitation": "Elicit.Slot.1400729483485.1528545859981"
                             }
                         }
                     ]
                 },
                 {
-                    "name": "ServoAngleIntent",
+                    "name": "DimmerAngleIntent",
                     "confirmationRequired": false,
                     "prompts": {},
                     "slots": [
@@ -150,13 +175,13 @@
                     ]
                 },
                 {
-                    "name": "LampOnOffIntent",
+                    "name": "LightOnOffIntent",
                     "confirmationRequired": false,
                     "prompts": {},
                     "slots": [
                         {
                             "name": "OnOff",
-                            "type": "onOffValue",
+                            "type": "OnOffValue",
                             "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
@@ -202,6 +227,15 @@
                     {
                         "type": "PlainText",
                         "value": "say on or off to turn lamp on or off"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1400729483485.1528545859981",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want the dimmer brightness to be max or min?"
                     }
                 ]
             }
