@@ -9,7 +9,7 @@ This custom program to turn on/off a lamp and turn a servo a certain angle using
 * I used **ngrok** to take my program live. 
 
 
-## VARIABELS TO CHANGE: ##
+## VARIABLES TO CHANGE: ##
 Change the *MQTT_SERVER*, *ssid*, and *password* variables from **MQTT_MultipleTopics.ino**
 
 ## STEPS TO SETUP: ##
