@@ -20,9 +20,9 @@ Change the *MQTT_SERVER*, *ssid*, and *password* variables from **MQTT_MultipleT
 
 ## ALEXA COMMANDS: ##
 
-* "Alexa, tell my devices to turn {OnOff} -> LightOnOffIntent
-* Alexa, tell my dimmer to turn {LeftRight} -> DimmerDirectionIntent
-* Alexa, tell my dimmer to turn {Angle} degrees -> DimmerAngleIntent
+* "Alexa, tell my devices to turn {OnOff}" -> LightOnOffIntent
+* "Alexa, tell my devices to dimmer {maxMinUpDown}" -> DimmerDirectionIntent
+* "Alexa, tell my devices to turn dimmer {Angle} degrees -> DimmerAngleIntent
 
 ## mqtt PUBLISH AND SUBSCRIBE COMMANDS: ##
 * mosquitto_sub -v -t "/test/light"
