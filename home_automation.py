@@ -6,7 +6,6 @@
 # Send data to ESP from Pi: mosquitto_pub -t "/test/light" -m '1' //or '0'
 # See what ESP Says: one on terminal type: mosquitto_sub -v -t "/test/dimmer"
 # Send data to ESP from Pi: mosquitto_pub -t "/test/dimmer" -m '__some_angle__'
-
 from flask import Flask, template_rendered
 from flask_ask import Ask, statement, question
 from numpy import interp #trying to map percent 0-100 to servo angle 0-180
@@ -45,13 +44,16 @@ def lamp(OnOff):
     if OnOff is None: #no command was given
         return question("Do you want to turn the light On or off?")
     elif OnOff == "on" or OnOff == "off":
+        os.system("""mosquitto_sub -v -t "/feedback/light""")
         if OnOff == "on": #turn ON lamp
             os.system("""mosquitto_pub -t %s -m '1'""" %topic)
+        
         else: #turn OFF lamp
             os.system("""mosquitto_pub -t %s -m '0'""" %topic)
+        
         return statement( "Turning light %s" %OnOff) 
     # else: #a valid command was not given
-    #     return question("do you want to turn your lamp on, or , off")
+    #    return question("do you want to turn your lamp on, or , off")
 
 #Dimmer Servo
 @ask.intent('DimmerAngleIntent')
@@ -62,11 +64,11 @@ def DimmerAngle(Angle):
         #NOTES: So When i tell Alexa a Angle number, it activates this function and passes in the Angle
         #BUT i need to cast Angle to an int before i map it. FOr some reason it dont work if i dont do this
         topic = "/devices/dimmer"
-        Angle = int(interp(int(Angle),[1,100],[1,180])) #mapping percent to angle an dmaking it an int from a float
+        Angle = int(interp(int(Angle),[0,100],[180,0])) #mapping percent to angle an dmaking it an int from a float
         print("\nSetting dimmer to percent: %s \n" %Angle)
         formattedPercent = '%03d' % int(Angle) #turned Angle number to a 3 digit string. SOLUTION to issue where the ESP8266 gets some random numbers passed
         os.system("""mosquitto_pub -t %s -m %s""" %(topic, formattedPercent) )
-        return statement("Turning dimmer to Angle: %s" %formattedPercent)
+        return statement("OK")
 
 @ask.intent('DimmerDirectionIntent')
 def DimmerDirection(MaxMinUpDown):
@@ -83,10 +85,10 @@ def DimmerDirection(MaxMinUpDown):
             print("\nSetting dimmer to low\n")
         formattedPercent  = '%03d' % int(Angle) #turned Angle number to a 3 digit string. SOLUTION to issue where the ESP8266 gets some random numbers passed
         os.system("""mosquitto_pub -t %s -m %s""" %(topic, formattedPercent) )
-        return statement("Turning dimmer to Angle: %s" %formattedPercent)
+        return statement("OK")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=8000, debug=True)
 
 
 

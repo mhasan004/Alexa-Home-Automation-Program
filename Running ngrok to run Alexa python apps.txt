@@ -1,4 +1,4 @@
-
+FINAL STEPS to conect python program with Alexa Developer Console: 
 Run this program and act like a server with nrok. 
 The set up on alexa develop and test on alexa device.
 ngrok point to the skill handler. get back https endpoint. put into alexa dev to test it out
@@ -19,7 +19,6 @@ ngrok point to the skill handler. get back https endpoint. put into alexa dev to
       Type in the https thing u got from ngrok(this url basically forward this url to the local url): https://829ecf5f.ngrok.io
       But since my endpoint is "/reddit_reader" it will be: https://829ecf5f.ngrok.io/reddit_reader
    e) The certification is, since im using ngrok, " my dev endpoint is a sub-domain ...."
-
 
 
 
