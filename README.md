@@ -29,3 +29,6 @@ Change the *MQTT_SERVER*, *ssid*, and *password* variables from **MQTT_MultipleT
 * mosquitto_sub -v -t "/devices/dimmer"
 * mosquitto_pub -t "/devices/dimmer" -m '__some_angle__'
 
+## FUTURE PLANS ##
+Plan to re-write this application using Javascripot and built a web app using Node and React
+
