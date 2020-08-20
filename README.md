@@ -12,10 +12,10 @@ This custom program to turn on/off a lamp and turn a servo a certain angle using
 Change the *MQTT_SERVER*, *ssid*, and *password* variables from **MQTT_MultipleTopics.ino**
 
 ## STEPS TO SETUP: ##
-1) go to ngrok path and type: ./ngrok http 5000
-2) add the https .io URL (example: https;//55055686.ngrok.io) as an endpoint in the Alexa Development Console 
-3) in a seperate terminal, run the python script
-4) upload the MQTT programm to the ESP8266
+1) Go to ngrok path and type: `./ngrok http 5000`
+2) Add the https .io URL (example: https://55055686.ngrok.io) as an endpoint in the Alexa Development Console 
+3) In a seperate terminal, run the python script
+4) Upload the MQTT programm to the ESP8266
 
 ## ALEXA COMMANDS: ##
 
