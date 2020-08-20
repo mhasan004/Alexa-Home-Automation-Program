@@ -24,10 +24,10 @@ Change the *MQTT_SERVER*, *ssid*, and *password* variables from **MQTT_MultipleT
 * "Alexa, tell my devices to turn dimmer {Angle} degrees -> DimmerAngleIntent
 
 ## mqtt PUBLISH AND SUBSCRIBE COMMANDS: ##
-* mosquitto_sub -v -t "/devices/light"
-* mosquitto_pub -t "/devices/light" -m '1' //or '0'
-* mosquitto_sub -v -t "/devices/dimmer"
-* mosquitto_pub -t "/devices/dimmer" -m '__some_angle__'
+* `mosquitto_sub -v -t "/devices/light"`
+* `mosquitto_pub -t "/devices/light" -m '1' //or '0'`
+* `mosquitto_sub -v -t "/devices/dimmer"`
+* `mosquitto_pub -t "/devices/dimmer" -m '__some_angle__'`
 
 ## FUTURE PLANS ##
 Plan to re-write this application using Javascript and built a web app using Node, Express, and React
