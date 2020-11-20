@@ -1,5 +1,5 @@
 # Devices_Alexa_Program
-This custom program to turn on/off a lamp and turn a servo a certain angle using Alexa, Raspberry Pi, and the ESP8266 through the MQTT protocol 
+This program can turn on/off a lamp, turn a dimmer light to a certain percentage, flip a light on/off using Alexa, Raspberry Pi, and the ESP8266 through the MQTT protocol.
 
 ## FILES: ##
 * **home_automation.py** is the python script that used Flask and Flask-Ask libraries to process Alexa intents. It will send servo angle values to the ESP8266 by publishing them to the MQTT server.
